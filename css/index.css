@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+        
+    margin: 0;
+        
+    padding: 0;
+    }
+
+body{
+    background-color: powderblue;
+}
+h2{
+    color: rgb(37, 37, 37);
+    text-align: center;
+    margin-bottom: 100px;
+}
+p{
+    color: white;
+    font-size: large;
+    font-weight: bold;
+}
+.center{
+    display: flex;
+}
+.img-me img{
+    border-radius: 100em;
+    width: 600px;
+}
+.img-me{
+    padding-right: 50px;
+    border-left:1px solid gray ;
+    padding-left: 30px;
+}
+.text p{
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+    color: black;
+}
+.nav-bar{
+    display: flex;
+    background-color: gray;
+    height: 100px;
+    align-items: center;
+    justify-content: center;  
+    position: fixed;
+    left:0;
+    right:0;
+    top: 0;
+    height:70px; 
+    cursor: pointer;
+      
+}
+.nav-bar li{
+    list-style-type: none;
+    margin-right: 40px;
+}
+.nav-bar li:hover{
+    color: wheat;
+}
+footer{
+    background-color: rgb(173, 186, 199);
+
+}
+.info{
+    padding: 20px;
+}
+.info-heading{
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+}
+.info-text{
+    margin-top: 25px;
+}
+.info-text li{
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+.icon-list{
+    display: flex;
+}
+.icon{
+    height: 100px;
+    margin-right: 20px;
+
+}
+.facebook-icon{
+    width: 60px;
+    height: 50px;
+    margin-left: 50px;
+    background-color: white;
+    color: blue;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.whatsapp-icon{
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+.instagram-icon{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: rgba(41, 23, 202, 0.801);
+    border-radius: 50%;
+    cursor: pointer;
+}
+

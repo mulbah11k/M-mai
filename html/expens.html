@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>𝕸𝖞 𝕸𝖆𝖎✍.</h2>
+            </div>
+            <ul>
+                <li class="active"><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="expens.html"><i class="fas fa-plus"></i> Add Expense </a></li>
+                <li><a href="expensList.html"><i class="fas fa-list"></i> Expense List</a></li>
+                <li><a href="expensBudget.html"><i class="fas fa-sliders-h"></i> Set Budget</a></li>
+                <li><a href="reports.html"><i class="fas fa-chart-bar"></i> Expense Report </a></li>
+                <li><a href="view_budget.html"><i class="fas fa-chart-bar"></i> View Budget</a></li>
+
+            </ul>
+            <div class="sidebar-footer">
+                <div class="upgrade">
+                    <p>Become a Pro to get more Features</p>
+                    <button>Upgrade</button>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="profile">
+                    <i class="fas fa-bell"></i>
+                    <img src="/ima/mulbah.jpg" alt="Profile Picture">
+                </div>
+            </header>
+            <section class="overview">
+                <h1>Expense Entry Form</h1>
+                <form id="expense-form">
+                  <label for="date">Date:</label>
+                  <input type="date" id="date" name="date" required>
+                  
+                  <label for="category">Category:</label>
+                  <select id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Food">Food</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Entertainment">Entertainment</option>
+                  </select>
+                  
+                  <label for="amount">Amount:</label>
+                  <input type="number" id="amount" name="amount" min="0" step="0.01" required>
+                  
+                  <label for="description">Description:</label>
+                  <input type="text" id="description" name="description">
+                  
+                  <label for="payment">Payment Method:</label>
+                  <select id="payment-method" name="payment" required>
+                    <option value="">Select Payment Method</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Cash">Mobile Money</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Debit Card">Debit Card</option>
+                  </select>
+                  
+                  <label for="tags">Tags:</label>
+                  <input type="text" id="tags" name="tags">
+                  
+                  <label for="receipt">Attach Receipt:</label>
+                  <input type="file" id="receipt" name="receipt">
+                  <button type="submit" id="save_button">Save Expense</button>
+               
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/from.js"></script>
+</body>
+</html>

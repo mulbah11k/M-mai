@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 10px 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-edit {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Expense Detail View</h2>
+    <div id="expenseDetail">
+        <!-- Expense details will be dynamically inserted here -->
+    </div>
+    <div class="buttons">
+        <button class="btn btn-edit" onclick="editExpense()">Edit</button>
+        <button class="btn btn-delete" onclick="deleteExpense()">Delete</button>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', loadExpenseDetail);
+
+    function loadExpenseDetail() {
+        const params = new URLSearchParams(window.location.search);
+        const index = params.get('index');
+        const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        const expense = expenses[index];
+
+        if (expense) {
+            const detailDiv = document.getElementById('expenseDetail');
+            detailDiv.innerHTML = `
+                <p><strong>Date:</strong> ${expense.date}</p>
+                <p><strong>Category:</strong> ${expense.category}</p>
+                <p><strong>Amount:</strong> $${expense.amount.toFixed(2)}</p>
+                <p><strong>Description:</strong> ${expense.description}</p>
+                <p><strong>Payment Method:</strong> ${expense.paymentMethod}</p>
+                <p><strong>Tags:</strong> ${expense.tags.join(', ')}</p>
+                <p><strong>Receipt:</strong> ${expense.receipt}</p>
+            `;
+        }
+    }
+
+    function editExpense() {
+        const params = new URLSearchParams(window.location.search);
+        const index = params.get('index');
+        window.location.href = `edit-expense.html?index=${index}`;
+    }
+
+    function deleteExpense() {
+        const params = new URLSearchParams(window.location.search);
+        const index = params.get('index');
+        const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        expenses.splice(index, 1);
+        localStorage.setItem('expenses', JSON.stringify(expenses));
+        window.location.href = 'expense-list.html';
+    }
+</script>
+
+</body>
+</html>

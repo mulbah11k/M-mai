@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password Form</title>
+    <link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+    <div class="reset-container">
+        <div class="reset-box">
+            <button class="close-button">&times;</button>
+            <h2>Reset your password</h2>
+            <p>If the account exists, we will email you instructions to reset the password.</p>
+            <hr>
+            <form id="reset-form">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="email" required>
+                <div class="button-group">
+                    <button type="button" onclick="returnToLogin()" class="return-button">Return to login</button>
+                    <button type="submit" class="reset-button">Reset Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../js/reset.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/*  This is form style */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+form input[type='text'] {
+  border-radius: 8px;
+  border: 1px solid rgb(141, 141, 141);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+form {
+  margin-top: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#save_button{
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 20%;
+  transition: background-color 0.3s;
+}
+#save_button:hover {
+  background-color: #45a049;
+}

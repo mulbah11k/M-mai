@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Expense</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-save {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-cancel {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Edit Expense</h2>
+    <form id="editExpenseForm">
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date">
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" id="category" name="category">
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="paymentMethod">Payment Method</label>
+            <input type="text" id="paymentMethod" name="paymentMethod">
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags (comma separated)</label>
+            <input type="text" id="tags" name="tags">
+        </div>
+        <div class="form-group">
+            <label for="receipt">Receipt</label>
+            <input type="text" id="receipt" name="receipt">
+        </div>
+        <div class="buttons">
+            <button type="button" class="btn btn-save" onclick="saveExpense()">Save</button>
+            <button type="button" class="btn btn-cancel" onclick="cancelEdit()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', loadExpenseForEdit);
+
+    function loadExpenseForEdit() {
+        const params = new URLSearchParams(window.location.search);
+        const index = params.get('index');
+        const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+        const expense = expenses[index];
+
+        if (expense) {
+            document.getElementById('date').value = expense.date;
+            document.getElementById('category').value = expense.category;
+            document.getElementById('amount').value = expense.amount;
+            document.getElementById('description').value = expense.description;
+            document.getElementById('paymentMethod').value = expense.paymentMethod;
+            document.getElementById('tags').value = expense.tags.join(', ');
+            document.getElementById('receipt').value = expense.receipt;
+        }
+    }
+
+    function saveExpense() {
+        const params = new URLSearchParams(window.location.search);
+        const index = params.get('index');
+        const expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+
+        const updatedExpense = {
+            date: document.getElementById('date').value,
+            category: document.getElementById('category').value,
+            amount: parseFloat(document.getElementById('amount').value),
+            description: document.getElementById('description').value,
+            paymentMethod: document.getElementById('paymentMethod').value,
+            tags: document.getElementById('tags').value.split(',').map(tag => tag.trim()),
+            receipt: document.getElementById('receipt').value
+        };
+
+        expenses[index] = updatedExpense;
+        localStorage.setItem('expenses', JSON.stringify(expenses));
+        window.location.href = '/html/expensList.html';
+    }
+
+    function cancelEdit() {
+        window.location.href = '/html/expensList.html';
+    }
+</script>
+
+</body>
+</html>
