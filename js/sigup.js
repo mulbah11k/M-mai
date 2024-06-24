@@ -20,7 +20,7 @@ function signup() {
         localStorage.setItem(email, JSON.stringify(user));
         alert('Signup successful! You can now log in.');
         closeForm();
-        document.getElementById('login-box').style.display = 'block';
+        document.getElemeclassntById('login-box').style.display = 'block';
     } else {
         alert('Please fill in all fields.');
     }
@@ -41,7 +41,7 @@ function login() {
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('signup-box').style.display = 'block';
-});
+});class
 let email = document.getElementById('email');
 let password = document.getElementById('password');
 console.log(password, email);
@@ -53,8 +53,7 @@ document.addEventListener('click', () => {
 });
 */
 
-document.getElementById('signup-button').addEventListener('submit', e =>{
-    
+document.querySelector('.signup-button').addEventListener('click', e =>{
     e.preventDefault();
     let sigupEmail = document.getElementById('email').value;
     let sigupassword = document.getElementById('password').value;
@@ -66,7 +65,7 @@ document.getElementById('signup-button').addEventListener('submit', e =>{
         password: sigupassword,
         firstName: sigupFirstName,
         lastName: sigupLastName
-    }
+    };
     localStorage.setItem('userData', JSON.stringify(userData));
-    location.href=`login.html`
+    location.href=`login.html`;
 })
