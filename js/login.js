@@ -12,7 +12,7 @@ document.querySelector('.login-button').addEventListener('click', e =>{
         let sigupEmail = userData.email;
         let sigupassword = userData.password;
         if (loginEmail === sigupEmail && loginPassword === sigupassword){
-            location.href = '/html/dashboard.html';
+            location.href = 'dashboard.html';
         }
         else{
             alert("can't login");
